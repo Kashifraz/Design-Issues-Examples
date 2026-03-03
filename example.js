@@ -1,14 +1,8 @@
- {selectedMedia && (
-    <div
-    className="fixed inset-0 bg-black/75 ... z-50 p-4"
-    onClick={() => setSelectedMedia(null)}
-    >
-        <div
-        className="bg-white rounded-2xl ... shadow-2xl"
-        onClick={(e) => e.stopPropagation()}
-        >
-        ...
-        ...
-        </div>
-    </div>
-)}
+
+            if ($userRole === 'manager') {
+                if (!$this->storeModel->hasAccess($expense['store_id'], $userId, $userRole)) {
+                    return $this->forbidden('You do not have access to this expense');
+                }
+            }
+
+            return $this->success($expense, 'Expense retrieved successfully');
